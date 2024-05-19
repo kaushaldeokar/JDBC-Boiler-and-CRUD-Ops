@@ -34,12 +34,23 @@ public class Main {
             // To hold the table Result Set Interface helps in
             ResultSet  resultSet = statement.executeQuery(query);
 
+            //Retrival //
             while(resultSet.next()){
                 int id = resultSet.getInt("id");
                 String name = resultSet.getString("name");
                 System.out.println("ID : "+id);
                 System.out.println("Name : "+name);
             }
+
+            //INSERT , UPDATE OR DELETE
+            String q2= String.format("INSERT INTO Students (name , age , marks) VALUES ('%s',%o,%f)","Rahul",23,74.6);
+            int rows_added = statement.executeUpdate(q2);
+
+            System.out.println(rows_added);
+            if(rows_added>0){
+                System.out.println("Data Added Succesfully");
+            }else System.out.println("FAILED");
+
 
         }catch (SQLException e){
             System.out.println("ERROR2** : "+e.getMessage());
