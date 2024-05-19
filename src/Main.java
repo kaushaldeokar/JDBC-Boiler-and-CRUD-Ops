@@ -60,6 +60,8 @@ public class Main {
                 System.out.println("Data Updated Succesfully");
             }else System.out.println("FAILED UPDATE");
 
+            //*** we have to write query at every point and
+            // run it there is way to compile query once and only fill the arguments - PREPARED STATEMENTS
 
 
         }catch (SQLException e){
