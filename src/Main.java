@@ -42,7 +42,7 @@ public class Main {
                 System.out.println("Name : "+name);
             }
 
-            //INSERT , UPDATE OR DELETE
+            // INSERT //
             String q2= String.format("INSERT INTO Students (name , age , marks) VALUES ('%s',%o,%f)","Rahul",23,74.6);
             int rows_added = statement.executeUpdate(q2);
 
@@ -50,6 +50,16 @@ public class Main {
             if(rows_added>0){
                 System.out.println("Data Added Succesfully");
             }else System.out.println("FAILED");
+
+            //UPDATE //
+            String q3= String.format("UPDATE Students SET marks = %f WHERE id = %d" , 95.0 , 1 );
+            int rows_updated = statement.executeUpdate(q3);
+
+            System.out.println(rows_updated);
+            if(rows_updated>0){
+                System.out.println("Data Updated Succesfully");
+            }else System.out.println("FAILED UPDATE");
+
 
 
         }catch (SQLException e){
