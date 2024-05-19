@@ -1,7 +1,7 @@
 import java.sql.*;
 
 
-public class Main {
+public class MySQLConnection {
 
     // final - makes string variable immutable / cannot be overridden
     private static final String Url= "jdbc:mysql://localhost:3306/jdbc_crud";
