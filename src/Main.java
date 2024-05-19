@@ -1,13 +1,10 @@
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 
 public class Main {
 
     // final - makes string variable immutable / cannot be overridden
-    private static final String Url= "jdbc:mysql://localhost:3306/?user=root";
+    private static final String Url= "jdbc:mysql://localhost:3306/jdbc_crud";
 
     //
     private static final String username= "root";
@@ -23,7 +20,7 @@ public class Main {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
         }catch (ClassNotFoundException e){
-            System.out.println(e.getMessage());
+            System.out.println("ERROR1** : "+e.getMessage());
         }
 
         try {
@@ -32,10 +29,20 @@ public class Main {
             //use Statement Interface and execute method of Connection interface
             Statement statement  = connection.createStatement();
             // now we have to perform Crud Operation using this statement interface only
+            String query = "select * from Students";
+            //when ever we are retriving data extecute Qurey else Update Query
+            // To hold the table Result Set Interface helps in
+            ResultSet  resultSet = statement.executeQuery(query);
 
+            while(resultSet.next()){
+                int id = resultSet.getInt("id");
+                String name = resultSet.getString("name");
+                System.out.println("ID : "+id);
+                System.out.println("Name : "+name);
+            }
 
         }catch (SQLException e){
-            System.out.println(e.getMessage());
+            System.out.println("ERROR2** : "+e.getMessage());
         }
 
     }
