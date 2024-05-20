@@ -29,6 +29,8 @@ public class Connection_PreparedStatements {
             Statement statement = connection.createStatement();
             // now we have to perform Crud Operation using this statement interface only
             // **PREPARED STATEMENTS ** //
+
+            //INSERT//
             String Query = "INSERT INTO Students(name , age , marks) VALUES(?,?,?)";
             PreparedStatement preparedQuery = connection.prepareStatement(Query);
             preparedQuery.setString(1,"KD");
@@ -41,6 +43,17 @@ public class Connection_PreparedStatements {
                 System.out.println("Added Successfully");
             }else System.out.println("FAILED");
 
+            //Retrival//
+            String Q2 = "select * from Students ";
+            PreparedStatement pre_stat = connection.prepareStatement(Q2);
+            ResultSet res = pre_stat.executeQuery();
+
+            while(res.next()){
+                int id = res.getInt("id");
+                String name = res.getString("name");
+                System.out.println("ID : "+id);
+                System.out.println("Name : "+name);
+            }
 
 
 
