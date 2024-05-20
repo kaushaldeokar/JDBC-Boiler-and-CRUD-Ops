@@ -66,10 +66,6 @@ public class MySQL_Batch_Processing {
             }
 
 
-
-
-
-
         } catch (SQLException e) {
             System.out.println("ERROR2** : " + e.getMessage());
         }
